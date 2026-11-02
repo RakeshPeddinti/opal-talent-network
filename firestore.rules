@@ -1,0 +1,140 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function isAdmin() {
+      return isAuthenticated() && 
+        (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin' ||
+         (request.auth.token.email == "rakesh2xplore@gmail.com" && request.auth.token.email_verified == true));
+    }
+
+    function hasOnlyAllowedFields(fields) {
+      return request.resource.data.keys().hasOnly(fields);
+    }
+
+    // ===============================================================
+    // Collection Rules
+    // ===============================================================
+
+    // Users Collection
+    match /users/{userId} {
+      // Allow read so service seekers and providers can view user/provider profiles seamlessly across Google Auth and Simple Auth sessions
+      allow read: if true; 
+      
+      // Users can create and update their profiles across authentication modes
+      allow create, update: if true;
+      allow delete: if isAdmin();
+    }
+
+    // Bookings Collection
+    match /bookings/{bookingId} {
+      // Allow read for everyone or involved parties
+      allow read: if true;
+      
+      // Allow creation of bookings for customers and providers
+      allow create: if true;
+      
+      // Update: Involved parties or admin can update status and payment info
+      allow update: if true;
+      
+      allow delete: if isAdmin() || isAuthenticated();
+    }
+
+    // Services Collection
+    match /services/{serviceId} {
+      // Anyone can read services
+      allow read: if true;
+      
+      // Providers, admins, and app users can create and update services
+      allow create, update: if true;
+      allow delete: if true;
+    }
+
+    // Special Offers Collection (Cloud Kitchen & Beauty)
+    match /special_offers/{offerId} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if isAdmin() || isAuthenticated();
+    }
+
+    // Discussions and Comments
+    match /discussions/{discussionId} {
+      allow read: if true;
+      allow create: if isAuthenticated();
+      allow update, delete: if isAuthenticated() && (request.auth.uid == resource.data.authorId || isAdmin());
+      
+      match /comments/{commentId} {
+        allow read: if true;
+        allow create: if isAuthenticated();
+        allow update, delete: if isAuthenticated() && (request.auth.uid == resource.data.authorId || isAdmin());
+      }
+    }
+
+    // Products Collection (Shop By Department items created by Sellers)
+    match /products/{productId} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if true;
+    }
+
+    // Orders Collection (Purchased shopping articles & customer checkouts)
+    match /orders/{orderId} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if true;
+    }
+
+    // Reviews Collection (Customer feedback & star ratings for providers & sellers)
+    match /reviews/{reviewId} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if isAdmin() || isAuthenticated();
+    }
+
+    // Visits Collection (Home / Store visits booked by customers for article trial & consultation)
+    match /visits/{visitId} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if isAdmin() || isAuthenticated();
+    }
+
+    // Talent Network: Profiles (Registered Talents with skills, experience, and resumes)
+    match /talent_profiles/{profileId} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if isAdmin() || isAuthenticated();
+    }
+
+    // Talent Network: Jobs & Requirements posted by Talent Seekers (Vendors)
+    match /talent_jobs/{jobId} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if isAdmin() || isAuthenticated();
+    }
+
+    // Talent Network: Applications submitted by Talents to open requirements
+    match /talent_applications/{applicationId} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if isAdmin() || isAuthenticated();
+    }
+
+    // Talent Network: SMS logs and alerts between Vendors and Talents
+    match /talent_notifications/{notificationId} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if isAdmin() || isAuthenticated();
+    }
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile for service seekers and providers",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Firebase Auth UID" },
+        "email": { "type": "string", "format": "email" },
+        "role": { "type": "string", "enum": ["admin", "provider", "seeker"] },
+        "businessName": { "type": "string" },
+        "category": { "type": "string" },
+        "name": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "Booking": {
+      "title": "Booking",
+      "description": "Service booking record",
+      "type": "object",
+      "properties": {
+        "serviceId": { "type": "string" },
+        "serviceName": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerEmail": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "cancelled", "completed"] },
+        "paymentStatus": { "type": "string", "enum": ["unpaid", "paid"] },
+        "price": { "type": "number" },
+        "providerId": { "type": "string" },
+        "customerId": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "cancelledAt": { "type": "string", "format": "date-time" },
+        "cancelledBy": { "type": "string" },
+        "cancellationReason": { "type": "string" }
+      },
+      "required": ["serviceId", "customerName", "customerEmail", "date", "time", "status"]
+    },
+    "Service": {
+      "title": "Service",
+      "description": "Service offered by a provider",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "price": { "type": "number" },
+        "duration": { "type": "string" },
+        "category": { "type": "string" },
+        "image": { "type": "string" },
+        "providerId": { "type": "string" },
+        "providerName": { "type": "string" },
+        "providerRating": { "type": "number" }
+      },
+      "required": ["name", "price", "providerId"]
+    },
+    "Discussion": {
+      "title": "Discussion",
+      "description": "Community forum post",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "authorId": { "type": "string" },
+        "authorName": { "type": "string" },
+        "authorRole": { "type": "string" },
+        "category": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "content", "authorId", "authorName"]
+    },
+    "Comment": {
+      "title": "Comment",
+      "description": "Reply to a discussion post",
+      "type": "object",
+      "properties": {
+        "discussionId": { "type": "string" },
+        "content": { "type": "string" },
+        "authorId": { "type": "string" },
+        "authorName": { "type": "string" },
+        "authorRole": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["discussionId", "content", "authorId", "authorName"]
+    },
+    "SpecialOffer": {
+      "title": "SpecialOffer",
+      "description": "Provider special offer published for specific dates targeted to existing customers (Cloud Kitchen and Beauty)",
+      "type": "object",
+      "properties": {
+        "providerId": { "type": "string" },
+        "providerName": { "type": "string" },
+        "category": { "type": "string", "enum": ["Cloud Kitchen", "Beauty", "Beauty & Wellness"] },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "discount": { "type": "string" },
+        "specificDate": { "type": "string" },
+        "endDate": { "type": "string" },
+        "promoCode": { "type": "string" },
+        "recipientCount": { "type": "number" },
+        "status": { "type": "string", "enum": ["active", "expired"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["providerId", "providerName", "category", "title", "specificDate", "status"]
+    },
+    "Review": {
+      "title": "Review",
+      "description": "Star ratings and verified customer reviews for service providers and product sellers",
+      "type": "object",
+      "properties": {
+        "targetType": { "type": "string", "enum": ["provider", "seller"] },
+        "targetId": { "type": "string" },
+        "targetName": { "type": "string" },
+        "referenceId": { "type": "string" },
+        "referenceType": { "type": "string", "enum": ["booking", "order"] },
+        "itemTitle": { "type": "string" },
+        "rating": { "type": "number", "minimum": 1, "maximum": 5 },
+        "title": { "type": "string" },
+        "comment": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "recommend": { "type": "boolean" },
+        "customerUid": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerEmail": { "type": "string" },
+        "verified": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["targetType", "targetName", "referenceId", "rating", "comment", "customerName"]
+    },
+    "Visit": {
+      "title": "Visit",
+      "description": "Article availability check & home/store visit booking",
+      "type": "object",
+      "properties": {
+        "visitId": { "type": "string" },
+        "visitType": { "type": "string", "enum": ["home_visit", "store_visit"] },
+        "articleId": { "type": "string" },
+        "articleName": { "type": "string" },
+        "articlePrice": { "type": "number" },
+        "selectedSize": { "type": "string" },
+        "selectedColor": { "type": "object" },
+        "customerName": { "type": "string" },
+        "customerEmail": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "visitDate": { "type": "string" },
+        "timeSlot": { "type": "string" },
+        "status": { "type": "string", "enum": ["confirmed", "completed", "cancelled"] }
+      },
+      "required": ["visitId", "visitType", "articleId", "customerName", "customerEmail", "visitDate", "timeSlot"]
+    }
+  },
+  "firestore": {
+    "/users/{uid}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "/bookings/{bookingId}": {
+      "schema": "Booking",
+      "description": "Service bookings"
+    },
+    "/services/{serviceId}": {
+      "schema": "Service",
+      "description": "Available services"
+    },
+    "/special_offers/{offerId}": {
+      "schema": "SpecialOffer",
+      "description": "Published special offers on specific dates"
+    },
+    "/discussions/{discussionId}": {
+      "schema": "Discussion",
+      "description": "Forum posts"
+    },
+    "/discussions/{discussionId}/comments/{commentId}": {
+      "schema": "Comment",
+      "description": "Comments on forum posts"
+    },
+    "/reviews/{reviewId}": {
+      "schema": "Review",
+      "description": "Customer star-ratings and reviews for providers and sellers"
+    },
+    "/visits/{visitId}": {
+      "schema": "Visit",
+      "description": "Home or store visit appointments for article trial & consultation"
+    }
+  }
+}

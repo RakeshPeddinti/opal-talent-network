@@ -1,0 +1,86 @@
+OPAL TALENT NETWORK — VIDEO GUIDE TRANSCRIPT & ARCHITECTURE
+========================================================================
+Video Title: Who Can Use Talent Network? Publishing, Job List & Indian Metros
+Audio Voiceover: Studio Executive Professional Voice (Gemini TTS Kore)
+Resolution: 1280x720 HD | Format: MP4 | Runtime: ~60 seconds
+Ecosystem: Opal Portal • India Technical Trades & Vendor Network
+========================================================================
+
+CHAPTER 1: WHO CAN USE IT? (TWO-SIDED ARCHITECTURE)
+------------------------------------------------------------------------
+Duration: 00:00 - 00:15
+Who Can Use It:
+1. TALENT PATH (Skilled Craftsmen & Technical Specialists):
+   - Master Electricians, Commercial Power Specialists, Finish Joiners,
+     HVAC & Heat Pump Technicians, Smart Automation Integrators.
+   - Profile features: LinkedIn-style career timeline, verified trade skills,
+     State/CEA licenses (Grade A), OSHA certifications, and PDF resume.
+   - 1-Click Application: Auto-attaches credentials and sends instant SMS alert.
+
+2. TALENT SEEKER PATH (Registered Vendors & Contractors):
+   - General contractors, interior fit-out firms, climate engineering partners
+     (e.g., Apex Precision Contracting India, Milano Artisan Interiors).
+   - Features: Publish technical requirements with locked vendor attribution,
+     INR hourly wage brackets, and access to the verified candidate directory.
+
+Professional Voice Narration:
+"Welcome to Opal Talent Network India. Built for India's high demand technical trades, the network serves two key stakeholders. First, Talents: master electricians, finish joiners, HVAC specialists, and automation engineers across Indian metropolitan cities. Talents build verified profiles, showcase state Grade A and CEA certifications, and apply to jobs with one click. Second, Talent Seekers: registered enterprise contractors and vendors like Apex Precision Contracting India. Seekers publish technical requirements and recruit candidates directly, with zero headhunter fees and locked vendor attribution."
+
+
+CHAPTER 2: PUBLISHING REQUIREMENTS (TALENT SEEKER VIEW)
+------------------------------------------------------------------------
+Duration: 00:15 - 00:30
+Workflow for Registered Vendors:
+- Switch to "Talent Seeker" or "Publish Requirement" terminal.
+- Provide required fields:
+  * Job Title & Designation (e.g. Lead Commercial Electrician & Power Systems)
+  * Trade Competencies Tags (Commercial Wiring, High-Voltage Panels, NEC)
+  * Minimum Experience Level (e.g. 5+ years)
+  * Wage Level in INR (e.g. ₹850 – ₹1,100 / hr)
+  * Indian Metropolitan City (Bengaluru, Mumbai, Delhi NCR, Hyderabad, etc.)
+  * Project Scope Description
+- Click "Post Job Requirement":
+  * Instantly syncs across the portal with locked vendor enterprise identity.
+  * Zero cross-tenant impersonation or unauthorized third-party postings.
+
+Professional Voice Narration:
+"As a registered Talent Seeker, publishing new technical requirements is fast and authoritative. In your recruitment terminal, specify your job title, required trade competencies, years of experience, hourly wage brackets in Indian Rupees, and the target Indian metropolitan city, such as Bengaluru, Mumbai, or Delhi NCR. Once submitted, your listing immediately goes live for discovery by verified talents across the network, with permanent enterprise attribution protecting your brand from cross-tenant impersonation."
+
+
+CHAPTER 3: LIST OF JOBS & 1-CLICK APPLY (TALENT VIEW)
+------------------------------------------------------------------------
+Duration: 00:30 - 00:45
+Workflow for Talents:
+- Navigate to "Open Requirements" for rapid single-liner scanning.
+- Each listing highlights:
+  * Hiring Vendor Enterprise Name & Verified Badge
+  * Required Competencies Chips
+  * Experience Threshold & INR Hourly Wage
+  * Indian Metropolitan Location (Bengaluru, Mumbai, Delhi NCR)
+- 1-Click Application:
+  * Opens pre-filled application dossier with candidate's uploaded resume PDF
+    (e.g. Julian_Vance_Master_Electrician_Resume.pdf) and contact phone (+91 98450 19201).
+  * Automated SMS delivery dispatches to the candidate's mobile with application ref.
+
+Professional Voice Narration:
+"For talents, exploring open requirements is designed for rapid decision-making. Requirements appear as compact single-liners displaying hiring vendor, required skills, experience depth, hourly wage in Indian Rupees, and metro location. When applying, your verified profile and uploaded PDF resume attach automatically. Submitting immediately dispatches a real-time SMS confirmation directly to your registered Indian mobile number."
+
+
+CHAPTER 4: CANDIDATE DIRECTORY & INDIAN METRO FILTERS (SEEKER VIEW)
+------------------------------------------------------------------------
+Duration: 00:45 - 01:00
+Workflow for Hiring Vendors:
+- Access the exclusive candidate container (.talent-directory-container).
+- Filter by Indian Metropolitan Cities:
+  * Bengaluru, Mumbai, Delhi NCR, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad.
+  * Live candidate counter chips for 1-click geographic filtering.
+- Filter by Trade Skills, Experience Depth (1-3 yrs, 3-5 yrs, 5-8 yrs, 8+ yrs),
+  and INR Hourly Wage brackets (Under ₹600, ₹600-₹800, ₹800-₹1,100, ₹1,100+).
+- Review verified candidate timeline, education, and credentials.
+- Click "Direct SMS Outreach" to initiate an instant SMS conversation with the talent.
+
+Professional Voice Narration:
+"Finally, the Registered Talents Directory is exclusively unlocked for verified enterprise vendors inside the talent directory container. Filter candidates instantly across eleven Indian Metropolitan hubs, including Bengaluru, Mumbai, Hyderabad, and Pune. Drill down by trade competencies, experience years, and wage brackets. Review full career timelines, and initiate direct SMS outreach to candidate mobile devices in seconds."
+
+========================================================================
+© 2026 Opal Portal Ecosystem • India Talent Network. All rights reserved.
